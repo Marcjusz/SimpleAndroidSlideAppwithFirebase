@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">Simple Android Slide App with Firebase</string>
+    <string name="action_settings">Settings</string>
+</resources>
