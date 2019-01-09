@@ -32,19 +32,11 @@ public class MainActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
         viewPager = (ViewPager) findViewById(R.id.viewPager);
 
-        //make reference to base
         database = FirebaseDatabase.getInstance().getReference();
-
-        //read from base and start page adapter
         readFromFirebase(database);
 
-        /* didint work
-        StorageReference storageReference2 = FirebaseStorage.getInstance().getReferenceFromUrl("gs://praca-inzynierska-omm-omm-site.appspot.com/zdjecie1.jpg");
-        ImageView imageView = findViewById(R.id.a1);
-        GlideApp.with(this).load(storageReference2).into(imageView);
-        */
 
-        /* leater use for upgrade app
+        /*
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -87,10 +79,9 @@ public class MainActivity extends AppCompatActivity {
                     dataBaseGiftArrayList.add(dataBaseGift);
                     dataBaseGiftsKeysArrayList.add(childSnapshot.getKey());
                     Log.d("odczyt", "Value is: " + dataBaseGift.getTitle());
-                    viewPager.setAdapter(new ViewPagerAdapter(getSupportFragmentManager(), dataBaseGiftsKeysArrayList, dataBaseGiftArrayList, database));
+                    viewPager.setAdapter(new ViewPagerAdapter(getSupportFragmentManager(), dataBaseGiftsKeysArrayList, dataBaseGiftArrayList));
                 }
             }
-
             @Override
             public void onCancelled(DatabaseError error) {
                 // Failed to read value

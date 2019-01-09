@@ -4,7 +4,6 @@ import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
-import com.google.firebase.database.DatabaseReference;
 import java.util.ArrayList;
 
 public class ViewPagerAdapter extends FragmentStatePagerAdapter {
@@ -13,7 +12,7 @@ public class ViewPagerAdapter extends FragmentStatePagerAdapter {
 
 
     public ViewPagerAdapter(FragmentManager fm, ArrayList<String> dataBaseGiftsKeysArrayList,
-                            ArrayList<DataBaseGift> dataBaseGiftArrayList , DatabaseReference myRef){
+                            ArrayList<DataBaseGift> dataBaseGiftArrayList){
         super(fm);
         this.dataBaseGiftArrayList=dataBaseGiftArrayList;
         this.dataBaseGiftsKeysArrayList=dataBaseGiftsKeysArrayList;
@@ -22,7 +21,6 @@ public class ViewPagerAdapter extends FragmentStatePagerAdapter {
     @Override
     public Fragment getItem(int i) {
         ViewPagerFragment viewPagerFragment = new ViewPagerFragment();
-        //sending data to fragmen by bundle
         Bundle bundle = new Bundle();
         bundle.putString("title",dataBaseGiftArrayList.get(i).getTitle()); //sending title of kid
         bundle.putString("id",dataBaseGiftsKeysArrayList.get(i)); //sending id of kid
